@@ -24,7 +24,7 @@ void insertionSort(int v[], int n) {
         */
         while (j >= 0 && v[j] > chave) {
             v[j + 1] = v[j]; // O número maior "anda" uma casa para a direita
-            j = j - 1;       // Movemos o olhar para a carta anterior
+            j -=1;       // Movemos o olhar para a carta anterior
         }
 
         // Quando achamos o lugar certo, colocamos a 'chave' lá
