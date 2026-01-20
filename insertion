@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+// Função para imprimir
+void imprimirVetor(int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", v[i]);
+    }
+    printf("\n");
+}
+
+// Função do Insertion Sort
+void insertionSort(int v[], int n) {
+    int i, j, chave;
+
+    // Começamos da posição 1 (a segunda carta), 
+    // porque a primeira carta (posição 0) sozinha já está "ordenada".
+    for (i = 1; i < n; i++) {
+        chave = v[i]; // Guardamos a carta da vez na variável 'chave'
+        j = i - 1;    // 'j' começa olhando para quem está logo atrás da chave
+
+        /* Enquanto o 'j' for uma posição válida (>= 0) 
+           E o número na posição 'j' for maior que a nossa 'chave',
+           nós "arrastamos" esse número para a direita.
+        */
+        while (j >= 0 && v[j] > chave) {
+            v[j + 1] = v[j]; // O número maior "anda" uma casa para a direita
+            j = j - 1;       // Movemos o olhar para a carta anterior
+        }
+
+        // Quando achamos o lugar certo, colocamos a 'chave' lá
+        v[j + 1] = chave;
+    }
+}
+
+int main() {
+    int meuVetor[10] = {12, 11, 13, 5, 6, 90, 45, 2, 1, 33};
+    int n = 10;
+
+    printf("Vetor original:  ");
+    imprimirVetor(meuVetor, n);
+
+    insertionSort(meuVetor, n);
+
+    printf("Vetor ordenado:  ");
+    imprimirVetor(meuVetor, n);
+
+    return 0;
+}
