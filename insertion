@@ -15,8 +15,8 @@ void insertionSort(int v[], int n) {
     // Começamos da posição 1 (a segunda carta), 
     // porque a primeira carta (posição 0) sozinha já está "ordenada".
     for (i = 1; i < n; i++) {
-        chave = v[i]; // Guardamos a carta da vez na variável 'chave'
-        j = i - 1;    // 'j' começa olhando para quem está logo atrás da chave
+        chave = v[i]; // Guardamos a carta da vez na variável 'chave', v[i] passa a ser a chave que vai ser comparada com os outros elementos do vetor
+        j = i - 1;    // 'j' olha para o elemento à esquerda da chave e os compara para ver se é necessário mudar a posição dele no vetor
 
         /* Enquanto o 'j' for uma posição válida (>= 0) 
            E o número na posição 'j' for maior que a nossa 'chave',
@@ -24,7 +24,7 @@ void insertionSort(int v[], int n) {
         */
         while (j >= 0 && v[j] > chave) {
             v[j + 1] = v[j]; // O número maior "anda" uma casa para a direita
-            j -=1;       // Movemos o olhar para a carta anterior
+            j -=1;       // agora observamos o elemento à esquerda no vetor
         }
 
         // Quando achamos o lugar certo, colocamos a 'chave' lá
