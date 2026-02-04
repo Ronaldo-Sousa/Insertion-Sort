@@ -19,15 +19,12 @@ void insertionSort(int vetor[], int tamanho){
         }
         vetor[j+1] = chave;
     }
+    imprimirVetor(vetor, tamanho);
 }
 
 int main(){
     int meuVetor[] = {50, 70, 30, 40, 20, 80, 5, 60, 90, 10};
     int tam = sizeof(meuVetor)/sizeof(meuVetor[0]);
-    
-    printf("Vetor original: ");
-    imprimirVetor(meuVetor, tam);
+
     insertionSort(meuVetor, tam);
-    printf("Vetor ordenado: ");
-    imprimirVetor(meuVetor, tam);
 }
